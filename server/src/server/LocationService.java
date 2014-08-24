@@ -114,27 +114,6 @@ public class LocationService extends Service implements
 		isRunning = true;
 	}
 
-	// private void showNotification() {
-	// mNotificationManager = (NotificationManager)
-	// getSystemService(NOTIFICATION_SERVICE);
-	// // In this sample, we'll use the same text for the ticker and the
-	// // expanded notification
-	// CharSequence text = "Location retrieval started";
-	// // Set the icon, scrolling text and timestamp
-	// Notification notify = new Notification();
-	// notify.icon = com.example.server.R.drawable.location;
-	// // The PendingIntent to launch our activity if the user selects this
-	// // notification
-	// PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-	// new Intent(this, activity.class), 0);
-	// // Set the info for the views that show in the notification panel.
-	// notification.setLatestEventInfo(this, getText(R.string.service_label),
-	// text, contentIntent);
-	// // Send the notification.
-	// // We use a layout id because it is a unique number. We use it later to
-	// // cancel.
-	// mNotificationManager.notify(R.string.service_started, notification);
-	// }
 	/**
 	 * Handle incoming messages from MainActivity
 	 */
@@ -143,7 +122,7 @@ public class LocationService extends Service implements
 															// from clients.
 		@Override
 		public void handleMessage(Message msg) {
-			Log.d(LOGTAG, "handleMessage: " + msg.what);
+//			Log.d(LOGTAG, "handleMessage: " + msg.what);
 			switch (msg.what) {
 			case MSG_REGISTER_CLIENT:
 				mClients.add(msg.replyTo);
