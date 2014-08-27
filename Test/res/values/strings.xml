@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">Test</string>
+    <string name="service_name">MyService</string>
+    <string name="activity_name">MainActivity</string>
+    <string name="serviceStart">Start Service</string>
+    <string name="serviceStop">Stop Service</string>
+
+    <!-- serviceStart, serviceStop -->
+
+</resources>
