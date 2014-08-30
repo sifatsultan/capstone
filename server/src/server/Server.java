@@ -35,7 +35,7 @@ public class Server extends Thread {
 	ServerSocket server;
 	Socket client;
 	DataInputStream reader;
-	USBThread usbThread;
+	USB usbThread;
 	InputStreamReader inputStreamReader;
 	BufferedReader bufferedReader;
 	String str_clientMsg;

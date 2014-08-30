@@ -28,9 +28,9 @@
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
             </intent-filter>
-            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -45,6 +45,11 @@
 
         <service
             android:name="server.ReceiveUpdatesIntentService"
+            android:exported="false"
+            android:label="@string/app_name" >
+        </service>
+        <service
+            android:name="server.Location"
             android:exported="false"
             android:label="@string/app_name" >
         </service>

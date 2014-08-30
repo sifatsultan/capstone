@@ -16,7 +16,7 @@ public class ServerUDP extends Thread {
 	int MAX_UDP_DATAGRAM_LEN = 7;
 	int port;
 	DatagramPacket dp;
-	USBThread usbThread;
+	USB usb;
 	DatagramSocket ds;
 	Activity activity;
 	Peace peace;
@@ -57,8 +57,8 @@ public class ServerUDP extends Thread {
 
 	public void run() {
 		try {
-			usbThread = new USBThread(activity, terminal);
-			usbThread.start();
+			usb = new USB(activity, terminal);
+			usb.start();
 
 			msgAr = new byte[MAX_UDP_DATAGRAM_LEN];
 			dp = new DatagramPacket(msgAr, msgAr.length);
@@ -76,7 +76,7 @@ public class ServerUDP extends Thread {
 			while (true) {
 				ds.receive(dp);
 				if (dp != null) {
-					usbThread.send(msgAr);
+					usb.send(msgAr);
 					updateUi();
 				}
 			}

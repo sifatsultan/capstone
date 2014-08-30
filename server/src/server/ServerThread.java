@@ -40,7 +40,7 @@ public class ServerThread extends Thread{
 
 			peace.toastThLng("IP: " + ip);
 			// ipadrs.setText("IP :" + ip.toString());
-			USBThread usb = new USBThread(activity, usbView);
+			USB usb = new USB(activity, usbView);
 			usb.start();
 
 			ServerSocket server = new ServerSocket(3030);

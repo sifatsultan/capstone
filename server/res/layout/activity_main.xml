@@ -413,7 +413,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/terminal" />
+                    android:src="@drawable/terminal" />
 
                 <TextView
                     android:id="@+id/reply_value"
@@ -447,7 +447,8 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/terminal" />
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/json" />
 
                 <TextView
                     android:id="@+id/json_value"
@@ -481,7 +482,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/terminal" />
+                    android:src="@drawable/current" />
 
                 <TextView
                     android:id="@+id/current"
@@ -490,6 +491,8 @@
                     android:layout_marginLeft="5dp"
                     android:background="@drawable/fieldbg"
                     android:fillViewport="true"
+                    android:gravity="bottom"
+                    android:maxLines="4"
                     android:padding="3dp"
                     android:scrollbars="vertical"
                     android:shadowColor="#e8d9c8"
@@ -515,7 +518,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/terminal" />
+                    android:src="@drawable/map" />
 
                 <TextView
                     android:id="@+id/next"
@@ -549,7 +552,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/terminal" />
+                    android:src="@drawable/bearing" />
 
                 <TextView
                     android:id="@+id/bearing"
@@ -576,8 +579,10 @@
                 android:orientation="horizontal"
                 android:weightSum="1" >
 
+                <!-- startService, stopService -->
+
                 <Button
-                    android:id="@+id/start_udp"
+                    android:id="@+id/startService"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
@@ -588,12 +593,12 @@
                     android:shadowDx="0"
                     android:shadowDy="1"
                     android:shadowRadius="1"
-                    android:text="Start Socket"
+                    android:text="Fetch Location"
                     android:textColor="#3e2a09"
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/start_cameraStream"
+                    android:id="@+id/stopService"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
@@ -604,7 +609,7 @@
                     android:shadowDx="0"
                     android:shadowDy="1"
                     android:shadowRadius="1"
-                    android:text="Start Stream"
+                    android:text="Stop Fetching"
                     android:textColor="#3e2a09"
                     android:textStyle="bold" />
             </LinearLayout>
