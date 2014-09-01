@@ -67,7 +67,7 @@ public class USB extends Thread {
 
 		@Override
 		public void onRunError(Exception e) {
-			peace.append(terminal, e.toString());
+			peace.setText(terminal, e.toString());
 		}
 
 		@Override

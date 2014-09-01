@@ -54,22 +54,6 @@ public class Location extends Service implements
 		return null;
 	}
 
-	public void sendMessage(String string) {
-
-		try {
-			Bundle bundle = new Bundle();
-			bundle.putString("message", string);
-
-			Message message = new Message();
-			message.setData(bundle);
-
-			serviceMessenger.send(message);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-
-	}
-
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		Bundle extras = intent.getExtras();
@@ -99,8 +83,7 @@ public class Location extends Service implements
 
 	@Override
 	public void onConnectionFailed(ConnectionResult arg0) {
-		Toast.makeText(Location.this, "Connection Failed", Toast.LENGTH_SHORT)
-				.show();
+		sendMessage("Connection Failed");
 	}
 
 	@Override
@@ -112,6 +95,7 @@ public class Location extends Service implements
 
 	@Override
 	public void onDisconnected() {
+		sendMessage("Location Client is disconnected");
 
 	}
 
@@ -120,6 +104,22 @@ public class Location extends Service implements
 		String locString = "Latitude :" + location.getLatitude()
 				+ "Longitude :" + location.getLongitude();
 		sendMessage(locString);
+	}
+
+	public void sendMessage(String string) {
+
+		try {
+			Bundle bundle = new Bundle();
+			bundle.putString("message", string);
+
+			Message message = new Message();
+			message.setData(bundle);
+
+			serviceMessenger.send(message);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

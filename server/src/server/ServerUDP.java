@@ -1,9 +1,12 @@
 package server;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.nio.charset.Charset;
 
 import android.app.Activity;
@@ -62,26 +65,52 @@ public class ServerUDP extends Thread {
 
 			msgAr = new byte[MAX_UDP_DATAGRAM_LEN];
 			dp = new DatagramPacket(msgAr, msgAr.length);
-
+			ds = null;
 			WifiManager wifiManager = (WifiManager) activity
 					.getSystemService(activity.WIFI_SERVICE);
 			WifiInfo wifiInfo = wifiManager.getConnectionInfo();
 			int ipInt = wifiInfo.getIpAddress();
-
-			ds = new DatagramSocket(port);
+			try{
+				ds = new DatagramSocket(port);
+				ds.setSoTimeout(3000);
+			} catch (SocketException e) {
+				e.printStackTrace();
+			}
 			String ipStrng = String.format("%d.%d.%d.%d", (ipInt & 0xff),
 					(ipInt >> 8 & 0xff), (ipInt >> 16 & 0xff),
 					(ipInt >> 24 & 0xff));
 			peace.setText(ip_value, ipStrng);
 			while (true) {
-				ds.receive(dp);
-				if (dp != null) {
-					usb.send(msgAr);
-					updateUi();
-				}
+				try{
+					ds.setSoTimeout(3000);
+					ds.receive(dp);
+					if (dp != null) {
+	   					usb.send(msgAr);
+	   					updateUi();
+	   				}
+				} catch (SocketTimeoutException  es){
+					byte[] kill = new byte[7];
+					kill[0] = (byte) 0xAA;
+					kill[1] = (byte) 'a';
+					kill[2] = (byte) 93;
+					kill[3] = (byte) 93;
+					kill[4] = (byte) 57;
+					kill[5] = (byte) 93;
+					kill[6] = (byte) 0xAA;
+					usb.send(kill);
+					peace.setText(ConnectionValue, "Connection Lost");
+					peace.setText(ModeValue, "Emergency");
+					peace.setText(AileronValue, String.valueOf(kill[2]));
+					peace.setText(ElevationValue, String.valueOf(kill[3]));
+					peace.setText(ThrustValue, String.valueOf(kill[4]));
+					peace.setText(RudderValue, String.valueOf(kill[5]));
+				} catch (IOException e) {
+					e.printStackTrace();
+				} 
+				
 			}
 		} catch (Exception e) {
-			peace.toastThLng(e.toString());
+			peace.toastThShrt(e.toString());
 		}
 	}
 

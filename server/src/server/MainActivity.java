@@ -2,6 +2,7 @@ package server;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,16 +11,20 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.server.R;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements Orentation.Listener {
 
 	private Activity activity = this;
 	private String serviceLocation;
+	private TextView orientation;
 	private static TextView current;
 	private Messenger activityMessenger = new Messenger(new MessageHandler());
+	private static boolean clicked = false;
+	private Orentation mOrientation;;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,32 +44,50 @@ public class MainActivity extends Activity {
 			TextView json_value = (TextView) findViewById(R.id.json_value);
 			current = (TextView) findViewById(R.id.current);
 			current.setMovementMethod(new ScrollingMovementMethod());
+			orientation = (TextView) findViewById(R.id.orientation);
 			TextView next = (TextView) findViewById(R.id.next);
 			TextView bearing = (TextView) findViewById(R.id.bearing);
+			Button start_cameraStream = (Button) findViewById(R.id.startStream);
+			ImageButton serviceStart = (ImageButton) findViewById(R.id.startService);
 
-			// Button start_udp = (Button) findViewById(R.id.start_udp);
-			// Button start_cameraStream = (Button)
-			// findViewById(R.id.start_cameraStream);
-
-			// <!--startService, stopService -->
-			Button serviceStart = (Button) findViewById(R.id.startService);
-			Button serviceStop = (Button) findViewById(R.id.stopService);
+			mOrientation = new Orentation(
+					(SensorManager) getSystemService(Activity.SENSOR_SERVICE),
+					getWindow().getWindowManager());
 
 			serviceStart.setOnClickListener(new OnClickListener() {
+
 				@Override
 				public void onClick(View arg0) {
-					Intent intent = new Intent(activity, Location.class);
-					intent.putExtra("ActMessenger", activityMessenger);
-					startService(intent);
+					if (clicked) {
+						stopService(new Intent(MainActivity.this,
+								Location.class));
+						clicked = false;
+					} else {
+						Intent intent = new Intent(activity, Location.class);
+						intent.putExtra("ActMessenger", activityMessenger);
+						startService(intent);
+						clicked = true;
+					}
+
 				}
 			});
 
-			serviceStop.setOnClickListener(new OnClickListener() {
+			start_cameraStream.setOnClickListener(new OnClickListener() {
+
 				@Override
 				public void onClick(View arg0) {
-					stopService(new Intent(MainActivity.this, Location.class));
+					Intent intent_stream = new Intent().setClassName(
+							"com.pas.webcam", "com.pas.webcam.Rolling");
+					startActivity(intent_stream);
+
 				}
 			});
+			// serviceStop.setOnClickListener(new OnClickListener() {
+			// @Override
+			// public void onClick(View arg0) {
+			// stopService(new Intent(MainActivity.this, Location.class));
+			// }
+			// });
 
 			JSON json = new JSON(4040);
 			json.ui(activity, json_value);
@@ -90,4 +113,22 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	@Override
+	protected void onResume() {
+		super.onResume();
+		mOrientation.startListening(this);
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		mOrientation.stopListening();
+	}
+
+	@Override
+	public void onOrientationChanged(float azimuth, float pitch, float roll) {
+		orientation.setText("Pitch: " + Float.toString(pitch) + " Roll: "
+				+ Float.toString(roll) + " Yaw: " + Float.toString(azimuth));
+
+	}
 }
