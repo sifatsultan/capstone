@@ -1,0 +1,13 @@
+# Datatypes
+
+IR		KEYWORD1
+IR_COMMAND_TYPE	KEYWORD1
+
+
+# Methods and Functions
+
+initialise 	KEYWORD2
+uninitialise	KEYWORD2
+queueFlush	KEYWORD2
+queueRead	KEYWORD2
+queueIsEmpty	KEYWORD2
