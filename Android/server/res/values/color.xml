@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#f39c12</color>
+    <!--Blue Color Palette-->
+    <color name="b1">#29b3dd</color>
+    <color name="b2">#54b8dc</color>
+    <color name="b3">#73c8e8</color>
+    <color name="b4">#80adbf</color>
+    <color name="b5">#8abace</color>
+    <color name="b6">#9fdaf2</color>
+    <color name="b7">#fdfeff</color>
+    <color name="white_o">#8fff</color>
+    <color name="white">#ffff</color>
+
+    <!--Contact Form-->
+    <color name="orange">#ffad46</color>
+    <color name="orange_shadow">#ff8e00</color>
+    <color name="blue">#98d7e4</color>
+    <color name="blue_shadow">#65c1d4</color>
+
+
+    <!--Flat UI Contact Form-->
+    <color name="header">#e67632</color>
+    <color name="body">#fbefbf</color>
+    <color name="footer">#f8cc37</color>
+    <color name="footer_hover">#e67632</color>
+    <color name="input_area">#fffbec</color>
+    <color name="input_shadow">#faebd5</color>
+
+    <!--Flat UI Contact Form Fonts-->
+    <color name="header_font">#f8f8f8</color>
+    <color name="header_font_shadow">#e15c28</color>
+    <color name="footer_font">#f8cc37</color>
+    <color name="footer_font_hover">#e67632</color>
+
+</resources>
