@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="android.graphics.Color"/>
+<fullyQualifiedTypeName name="android.app.ActionBar.LayoutParams"/>
+<fullyQualifiedTypeName name="android.widget.LinearLayout"/>
+<fullyQualifiedTypeName name="server.ServerUDP"/>
+<fullyQualifiedTypeName name="java.net.DatagramSocket"/>
+<fullyQualifiedTypeName name="java.net.InetAddress"/>
+<fullyQualifiedTypeName name="com.example.hellomap.R.id"/>
+<fullyQualifiedTypeName name="com.example.server.R.layout"/>
+<fullyQualifiedTypeName name="android.app.ActionBar.OnNavigationListener"/>
+<fullyQualifiedTypeName name="com.example.android.supportv13.R"/>
+<fullyQualifiedTypeName name="com.google.android.gms.location.LocationClient"/>
+<fullyQualifiedTypeName name="android.webkit.WebView.FindListener"/>
+<fullyQualifiedTypeName name="com.example.server.R"/>
+<fullyQualifiedTypeName name="com.example.server.R.id"/>
+<fullyQualifiedTypeName name="com.example.server.R.dimen"/>
+<fullyQualifiedTypeName name="com.example.server.R.drawable"/>
+<fullyQualifiedTypeName name="server.LocationService"/>
+<fullyQualifiedTypeName name="server.USBThread"/>
+<fullyQualifiedTypeName name="java.net.DatagramPacket"/>
+<fullyQualifiedTypeName name="android.bluetooth.BluetoothProfile.ServiceListener"/>
+<fullyQualifiedTypeName name="android.os.IBinder"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="com.example.test.R"/>
+<fullyQualifiedTypeName name="android.support.v4.app.TaskStackBuilder"/>
+<fullyQualifiedTypeName name="com.example.sockettest.MainActivity"/>
+<fullyQualifiedTypeName name="javax.net.ssl.HandshakeCompletedListener"/>
+<fullyQualifiedTypeName name="android.os.Message"/>
+<fullyQualifiedTypeName name="android.os.Messenger"/>
+<fullyQualifiedTypeName name="com.example.sockettest.MainActivity.MessageHandler"/>
+<fullyQualifiedTypeName name="android.os.Handler"/>
+<fullyQualifiedTypeName name="com.example.test.R.id"/>
+<fullyQualifiedTypeName name="android.app.Service"/>
+<fullyQualifiedTypeName name="android.location.LocationListener"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="com.google.android.gms.common.GooglePlayServicesClient"/>
+<fullyQualifiedTypeName name="com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks"/>
+<fullyQualifiedTypeName name="com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailedListener"/>
+<fullyQualifiedTypeName name="android.location.Location"/>
+<fullyQualifiedTypeName name="server.MainActivity"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+</qualifiedTypeNameHistroy>

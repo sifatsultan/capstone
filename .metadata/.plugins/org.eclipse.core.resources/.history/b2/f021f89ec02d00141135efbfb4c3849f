@@ -1,0 +1,64 @@
+package com.example.sockettest;
+
+import com.example.test.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+	Activity activity = this;
+	EditText write, ip;
+	Client client;
+	TextView ipadrs, read;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		// title(textview),write(edittext), connect(button), submit(button)
+
+		TextView title = (TextView) findViewById(R.id.title);
+		ip = (EditText) findViewById(R.id.ip);
+		write = (EditText) findViewById(R.id.write);
+		ipadrs = (TextView) findViewById(R.id.ipadrs);
+		read = (TextView) findViewById(R.id.read);
+
+		Button connect = (Button) findViewById(R.id.connect);
+		Button submitbtn = (Button) findViewById(R.id.submit);
+		Button serviceStart = (Button) findViewById(R.id.serviceStart);
+		Button serviceStop = (Button) findViewById(R.id.serviceStop);
+
+		ip.setHint("Write IP address here!");
+		write.setHint("Write message here!");
+		submitbtn.setText("Submit");
+		connect.setText("Connect");
+
+		Server server = new Server();
+		server.ui(activity, ipadrs, read);
+		server.start();
+
+		connect.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				client = new Client(3030, ip.getText().toString(), activity);
+			}
+		});
+
+		submitbtn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				client.start();
+				client.write(write.getText().toString());
+
+			}
+		});
+
+	}
+
+}

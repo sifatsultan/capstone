@@ -1,0 +1,44 @@
+package com.example.orientationsensor;
+
+import android.app.Activity;
+import android.hardware.SensorManager;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class MainActivity extends Activity implements Orentation.Listener {
+
+	private Orentation mOrientation;
+	private TextView rollView, pitchView;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		setContentView(R.layout.activity_main);
+
+		mOrientation = new Orentation(
+				(SensorManager) getSystemService(Activity.SENSOR_SERVICE),
+				getWindow().getWindowManager());
+
+		rollView = (TextView) findViewById(R.id.roll);
+		pitchView = (TextView) findViewById(R.id.pitch);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		mOrientation.startListening(this);
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		mOrientation.stopListening();
+	}
+
+	@Override
+	public void onOrientationChanged(float pitch, float roll) {
+
+		
+	}
+}

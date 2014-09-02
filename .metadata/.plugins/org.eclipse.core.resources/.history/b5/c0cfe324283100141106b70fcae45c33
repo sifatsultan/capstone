@@ -1,0 +1,20 @@
+package com.example.balance;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+	// roll, pitch , yaw
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		TextView roll = (TextView) findViewById(R.id.roll);
+		TextView pitch = (TextView) findViewById(R.id.pitch);
+		TextView yaw = (TextView) findViewById(R.id.yaw);
+
+	}
+
+}

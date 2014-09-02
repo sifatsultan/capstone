@@ -1,0 +1,50 @@
+package com.example.balance;
+
+import android.app.Activity;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class MainActivity extends Activity implements SensorEventListener {
+	// roll, pitch , yaw
+	SensorManager sManager;
+	private TextView roll;
+	private TextView pitch;
+	private TextView yaw;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		roll = (TextView) findViewById(R.id.roll);
+		pitch = (TextView) findViewById(R.id.pitch);
+		yaw = (TextView) findViewById(R.id.yaw);
+		sManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+	}
+
+	@Override
+	public void onAccuracyChanged(Sensor arg0, int arg1) {
+		// TODO Auto-generated method stub
+
+	}
+
+
+	@Override
+	public void onSensorChanged(SensorEvent sens) {
+		// roll: 2, pitch:1, yaw:0 ;
+		roll = "Roll : "+sens.
+		
+	}
+
+}

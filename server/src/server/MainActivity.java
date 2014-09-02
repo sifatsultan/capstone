@@ -31,7 +31,6 @@ public class MainActivity extends Activity implements Orentation.Listener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		try {
-
 			TextView ip_value = (TextView) findViewById(R.id.ip_value);
 			TextView global_ip_value = (TextView) findViewById(R.id.global_ip_value);
 			TextView connection_value = (TextView) findViewById(R.id.connection_value);

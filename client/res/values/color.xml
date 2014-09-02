@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#f39c12</color>
+    <!--Blue Color Palette-->
+    <color name="b1">#29b3dd</color>
+    <color name="b2">#54b8dc</color>
+    <color name="b3">#73c8e8</color>
+    <color name="b4">#80adbf</color>
+    <color name="b5">#8abace</color>
+    <color name="b6">#9fdaf2</color>
+    <color name="b7">#fdfeff</color>
+</resources>
