@@ -14,7 +14,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <uses-sdk
-        android:minSdkVersion="17"
+        android:minSdkVersion="14"
         android:targetSdkVersion="19" />
 
     <application
@@ -23,7 +23,7 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar.Fullscreen" >
         <activity
-            android:name="server.MainActivity"
+            android:name="main.MainActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
@@ -39,17 +39,17 @@
                 android:resource="@xml/device_filter" />
         </activity>
         <activity
-            android:name="server.LocationActivity_1"
+            android:name="main.LocationActivity_1"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
 
         <service
-            android:name="server.ReceiveUpdatesIntentService"
+            android:name="main.ReceiveUpdatesIntentService"
             android:exported="false"
             android:label="@string/app_name" >
         </service>
         <service
-            android:name="server.Location"
+            android:name="main.Location"
             android:exported="false"
             android:label="@string/app_name" >
         </service>
