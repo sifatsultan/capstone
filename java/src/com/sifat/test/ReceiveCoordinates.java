@@ -1,4 +1,4 @@
-package org.navigation.test;
+package com.sifat.test;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -8,9 +8,9 @@ import java.net.Inet4Address;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server {
+public class ReceiveCoordinates {
 	
-	public Server(){
+	public ReceiveCoordinates(){
 		
 		try {
 			System.out.print("IP:"+ Inet4Address.getLocalHost());
@@ -32,7 +32,7 @@ public class Server {
 	}
 	
 	public static void main(String[] args){
-		Server myServer = new Server();
+		ReceiveCoordinates myServer = new ReceiveCoordinates();
 	}
 
 }
