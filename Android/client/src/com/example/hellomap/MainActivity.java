@@ -66,6 +66,7 @@ public class MainActivity extends FragmentActivity {
 		latJsonArr = new JSONArray();
 		lngJsonArr = new JSONArray();
 
+		// get university coordinates
 		String aduAddress = "Abu Dhabi University";
 		List<Address> aduAddressLatLngList = null;
 		try {
@@ -77,6 +78,7 @@ public class MainActivity extends FragmentActivity {
 		adu_latlng = new LatLng(aduAddressLatLngList.get(0).getLatitude(),
 				aduAddressLatLngList.get(0).getLongitude());
 
+		// connect to server
 		connect.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -98,6 +100,8 @@ public class MainActivity extends FragmentActivity {
 
 			}
 		});
+		
+		// upload the coordinates
 		upload.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -120,6 +124,7 @@ public class MainActivity extends FragmentActivity {
 			}
 		});
 
+		// remove markers..
 		btn_remove_marker.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
