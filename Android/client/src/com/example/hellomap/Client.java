@@ -33,7 +33,7 @@ public class Client extends Thread {
 		try {
 			client = new Socket(ipAddress, port);
 			printWriter = new PrintWriter(client.getOutputStream(), true);
-			peace.toast("Socket established");
+			peace.toast("Socket has been established");
 
 			while (true) {
 				if (clientMsg != null) {
